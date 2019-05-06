@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок 2. Задание 8</title>
+    <script>
+        function power(val, pow) {
+            if (pow > 0)
+                return val *= power(val, pow-1);
+            else if (pow === 0)
+                val = 1;
+            return val;
+        }
+        var val = +prompt("Введите число");
+        var pow = +prompt("Введите степень");
+        val = power(val, pow);
+        document.write(val);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
