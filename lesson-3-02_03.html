@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <script>
+        function countCartPrice(cart) {
+            var cartPrice = 0;
+            for (var i = 0; i < cart.length; i++) {
+                cartPrice += cart[i][1] * cart[i][2];
+            }
+            return cartPrice;
+        }
+        var myCart = [             //массив для хранения содержимого карзины
+            ['Куртка',3500.00,1], //товар, цена, количество
+            ['Джинсы',7200.00,1],
+            ['Носки',200.00,3]
+        ];
+        var myCartPrice = countCartPrice(myCart);
+        alert(myCartPrice);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
