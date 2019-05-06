@@ -7,14 +7,14 @@
         function countCartPrice(cart) {
             var cartPrice = 0;
             for (var i = 0; i < cart.length; i++) {
-                cartPrice += cart[i][1] * cart[i][2];
+                cartPrice += cart[i][1]["price"] * cart[i][1]["quantity"];
             }
             return cartPrice;
         }
         var myCart = [             //массив для хранения содержимого карзины
-            ['Куртка',3500.00,1], //товар, цена, количество
-            ['Джинсы',7200.00,1],
-            ['Носки',200.00,3]
+            [1,{product:'Куртка',price:3500.00,quantity:1}], //[порядковый номер,{товар,цена,количество}]
+            [2,{product:'Джинсы',price:1500.00,quantity:2}],
+            [3,{product:'Носки',price:200.00,quantity:3}]
         ];
         var myCartPrice = countCartPrice(myCart);
         alert(myCartPrice);
