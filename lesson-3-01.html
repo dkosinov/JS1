@@ -5,10 +5,8 @@
     <title>Поиск простых чисел</title>
     <script>
         function naturalNumberCheck(n) {
-            if (n === 0)
+            if (n < 2)
                 return false;
-            else if (n === 1)
-                return true;
             else {
                 var i = 2;
                 while (i < n) {
