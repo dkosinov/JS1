@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок 4. Задание 1</title>
+    <script>
+        "use strict";
+        //Написать функцию, преобразующую число в объект.
+        function getObjFromNumber(_number) {
+            if (_number < 0 || _number > 999) {
+                console.log('Число ' + _number + ' не в диапазоне от 0 до 999');
+                return {};
+            }
+            else {
+                var arr = _number.toString().split('').reverse();
+                return {
+                    'единицы' : arr[0],
+                    'десятки' : arr[1],
+                    'сотни' : arr[2],
+                };
+            }
+        }
+        function isEmptyObj(_obj) {
+            for (var p in _obj) {
+                return false;
+            }
+            return true;
+        }
+        var num = +prompt('Введите число от 0 до 999');
+        var obj = getObjFromNumber(num);
+        document.write('Введено число ' + num + '<br>Создан объект<br>');
+
+        if (isEmptyObj(obj))
+            document.write('Объект пустой');
+
+        for (var p in obj) {
+            document.write(p + ': ' + obj[p] + '<br>');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
