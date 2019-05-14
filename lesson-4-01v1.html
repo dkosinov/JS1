@@ -7,14 +7,17 @@
         "use strict";
         //Написать функцию, преобразующую число в объект.
         function getObjFromNumber(_number) {
-            var range = [0 , 999] //дипазон принимаемых чисел
+            //Настраиваемые параметры функции
+            var range = [0 , 9999];//диапазон принимаемых чисел
+            var positions = ['единицы','десятки','сотни','тысячи'];//разряды создаваемого объекта
+            //
             if (isNaN(_number) ||_number < range[0] || _number > range[1]) {
-                console.log('Число ' + _number + ' не в диапазоне от 0 до 999');
+                console.log('Число ' + _number + ' не в диапазоне от ' + range[0] + ' до ' + range[1]);
                 return {};
             }
             else {
                 var strNum = _number.toString();
-                var positions = ['единицы','десятки','сотни'];
+
                 var objNum = {};
                 for (var i = 0; i < positions.length; i++){
                     objNum[positions[i]] = strNum[strNum.length-1-i];
