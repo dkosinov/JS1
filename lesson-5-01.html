@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Шахматная доска</title>
+    <style>
+        .chessboard {
+            width: 500px;
+            height: 500px;
+            border: solid 1px black;
+            display: grid;
+            grid-template-columns: repeat(10, 10%);
+            grid-template-rows: repeat(10, 10%);
+            font-size: x-large;
+            font-weight: 1000;
+        }
+        .chessboard__cell_border-top {
+            transform: rotate(180deg);
+            text-align: center;
+            padding-top: 10px;
+            background-color: khaki;
+            border-top: solid 1px black;
+        }
+        .chessboard__cell_empty {
+            background-color: khaki;
+        }
+        .chessboard__cell_black {
+            background-color: #000000;
+        }
+        .chessboard__cell_wight {
+            background-color: #ffffff;
+        }
+        .chessboard__cell_border-left {
+            line-height: 50px;
+            text-align: right;
+            padding-right: 10px;
+            border-right: solid 1px black;
+            background-color: khaki;
+        }
+        .chessboard__cell_border-right {
+            line-height: 50px;
+            text-align: left;
+            padding-left: 10px;
+            border-left: solid 1px black;
+            background-color: khaki;
+        }
+        .chessboard__cell_border-bottom {
+            text-align: center;
+            padding-top: 10px;
+            background-color: khaki;
+            border-top: solid 1px black;
+        }
+    </style>
+</head>
+<body>
+    <div class='chessboard'>
+        <div class="chessboard__cell_empty"></div>
+        <div class="chessboard__cell_border-top ">A</div>
+        <div class="chessboard__cell_border-top ">B</div>
+        <div class="chessboard__cell_border-top ">C</div>
+        <div class="chessboard__cell_border-top ">D</div>
+        <div class="chessboard__cell_border-top ">E</div>
+        <div class="chessboard__cell_border-top ">F</div>
+        <div class="chessboard__cell_border-top ">G</div>
+        <div class="chessboard__cell_border-top ">H</div>
+        <div class="chessboard__cell_empty"></div>
+        <div class="chessboard__cell_border-left">8</div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_border-right">8</div>
+        <div class="chessboard__cell_border-left">7</div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_border-right">7</div>
+        <div class="chessboard__cell_border-left">6</div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_border-right">6</div>
+        <div class="chessboard__cell_border-left">5</div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_border-right">5</div>
+        <div class="chessboard__cell_border-left">4</div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_border-right">4</div>
+        <div class="chessboard__cell_border-left">3</div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_border-right">3</div>
+        <div class="chessboard__cell_border-left">2</div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_border-right">2</div>
+        <div class="chessboard__cell_border-left">1</div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_black"></div>
+        <div class="chessboard__cell_wight"></div>
+        <div class="chessboard__cell_border-right">1</div>
+        <div class="chessboard__cell_empty"></div>
+        <div class="chessboard__cell_border-bottom">A</div>
+        <div class="chessboard__cell_border-bottom">B</div>
+        <div class="chessboard__cell_border-bottom">C</div>
+        <div class="chessboard__cell_border-bottom">D</div>
+        <div class="chessboard__cell_border-bottom">E</div>
+        <div class="chessboard__cell_border-bottom">F</div>
+        <div class="chessboard__cell_border-bottom">G</div>
+        <div class="chessboard__cell_border-bottom">H</div>
+        <div class="chessboard__cell_empty"></div>
+    </div>
+
+</body>
+</html>
