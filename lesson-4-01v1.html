@@ -7,17 +7,19 @@
         "use strict";
         //Написать функцию, преобразующую число в объект.
         function getObjFromNumber(_number) {
-            if (isNaN(_number) ||_number < 0 || _number > 999) {
+            var range = [0 , 999] //дипазон принимаемых чисел
+            if (isNaN(_number) ||_number < range[0] || _number > range[1]) {
                 console.log('Число ' + _number + ' не в диапазоне от 0 до 999');
                 return {};
             }
             else {
-                var arr = _number.toString().split('').reverse();
-                return {
-                    'единицы' : arr[0],
-                    'десятки' : arr[1],
-                    'сотни' : arr[2],
+                var strNum = _number.toString();
+                var positions = ['единицы','десятки','сотни'];
+                var objNum = {};
+                for (var i = 0; i < positions.length; i++){
+                    objNum[positions[i]] = strNum[strNum.length-1-i];
                 };
+                return objNum;
             }
         }
         function isEmptyObj(_obj) {
