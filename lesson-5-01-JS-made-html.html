@@ -3,144 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>JS. Шахматная доска</title>
-    <style>
-        .chessboard {
-            width: 500px;
-            height: 500px;
-            border: solid 1px black;
-            display: grid;
-            grid-template-columns: repeat(10, 10%);
-            grid-template-rows: repeat(10, 10%);
-            font-size: x-large;
-            font-weight: 900;
-        }
-        .chessboard__cell_border-top {
-            transform: rotate(180deg);
-            text-align: center;
-            padding-top: 10px;
-            background-color: khaki;
-            border-top: solid 2px black;
-        }
-        .chessboard__cell_empty {
-            background-color: khaki;
-        }
-        .chessboard__cell_black {
-            background-color: #000000;
-        }
-        .chessboard__cell_wight {
-            background-color: khaki;
-        }
-        .chessboard__cell_border-left {
-            line-height: 50px;
-            text-align: right;
-            padding-right: 10px;
-            border-right: solid 2px black;
-            background-color: khaki;
-        }
-        .chessboard__cell_border-right {
-            line-height: 50px;
-            text-align: left;
-            padding-left: 10px;
-            border-left: solid 2px black;
-            background-color: khaki;
-        }
-        .chessboard__cell_border-bottom {
-            text-align: center;
-            padding-top: 10px;
-            background-color: khaki;
-            border-top: solid 2px black;
-        }
-    </style>
+    <link rel="stylesheet" href="lesson-5-01_style.css">
+
 </head>
 <body>
+    <form id="form">
+    </form>
 
-<script>
-    var strChars = 'ABCDEFGH'; //буквенные подписи клеток
-
-    //добавляем главный блок-контейнер
-    var $div_chessboard = document.createElement("div");
-    $div_chessboard.classList.add('chessboard');
-    document.body.appendChild($div_chessboard);
-
-    //формируем верхний ряд блоков подписей клеток
-    //добавляем пустой верхний левый блок
-    var $div_chessboard__cell_empty = document.createElement("div");
-    $div_chessboard__cell_empty.classList.add('chessboard__cell_empty');
-    $div_chessboard.appendChild($div_chessboard__cell_empty);
-
-    //добавляем блоки верхнего ряда буквенных подписей
-    for (var i = 0; i < strChars.length; i++) {
-        var $div_chessboard__cell_border_top = document.createElement('div');
-        $div_chessboard__cell_border_top.textContent = strChars[i];
-        $div_chessboard__cell_border_top.classList.add('chessboard__cell_border-top');
-        $div_chessboard.appendChild($div_chessboard__cell_border_top);
-    }
-
-    //добавляем пустой верхний правый блок
-    var $div_chessboard__cell_empty = document.createElement("div");
-    $div_chessboard__cell_empty.classList.add('chessboard__cell_empty');
-    $div_chessboard.appendChild($div_chessboard__cell_empty);
-
-    //верхний ряд блоков сформирован
-
-    //добавляем блоки клеток поля доски
-    var isWightFist = true;
-    for (var i = 0; i < 32; i++) {
-        if (i % 4 === 0 && i !== 0)
-            isWightFist = !isWightFist;
-
-        if (isWightFist) {
-            var $div_chessboard__cell_wight = document.createElement('div');
-            $div_chessboard__cell_wight.classList.add('chessboard__cell_wight');
-            $div_chessboard.appendChild($div_chessboard__cell_wight);
-            var $div_chessboard__cell_black = document.createElement('div');
-            $div_chessboard__cell_black.classList.add('chessboard__cell_black');
-            $div_chessboard.appendChild($div_chessboard__cell_black);
-        } else {
-            var $div_chessboard__cell_black = document.createElement('div');
-            $div_chessboard__cell_black.classList.add('chessboard__cell_black');
-            $div_chessboard.appendChild($div_chessboard__cell_black);
-            var $div_chessboard__cell_wight = document.createElement('div');
-            $div_chessboard__cell_wight.classList.add('chessboard__cell_wight');
-            $div_chessboard.appendChild($div_chessboard__cell_wight);
-        }
-    }
-    //добавляем цифровые подписи клеток слева и справа
-    var insPosition = 9;
-    for (var i = 0; i < 8; i++) {
-        insPosition += 1;
-        var $div_chessboard__cell_border_left = document.createElement('div');
-        $div_chessboard__cell_border_left.classList.add('chessboard__cell_border-left');
-        $div_chessboard__cell_border_left.textContent = 8 - i;
-        $div_chessboard.insertBefore($div_chessboard__cell_border_left, $div_chessboard.children[insPosition]);
-
-        var $div_chessboard__cell_border_right = document.createElement('div');
-        $div_chessboard__cell_border_right.classList.add('chessboard__cell_border-right');
-        $div_chessboard__cell_border_right.textContent = 8 - i;
-        insPosition += 9;
-        $div_chessboard.insertBefore($div_chessboard__cell_border_right, $div_chessboard.children[insPosition]);
-    }
-    //формируем нижний ряд блоков подписей клеток по аналогии с верхним
-    var $div_chessboard__cell_empty = document.createElement("div");
-    $div_chessboard__cell_empty.classList.add('chessboard__cell_empty');
-    $div_chessboard.appendChild($div_chessboard__cell_empty);
-
-    for (var i = 0; i < strChars.length; i++) {
-        var $div_chessboard__cell_border_bottom = document.createElement('div');
-        $div_chessboard__cell_border_bottom.textContent = strChars[i];
-        $div_chessboard__cell_border_bottom.classList.add('chessboard__cell_border-bottom');
-        $div_chessboard.appendChild($div_chessboard__cell_border_bottom);
-    }
-
-    var $div_chessboard__cell_empty = document.createElement("div");
-    $div_chessboard__cell_empty.classList.add('chessboard__cell_empty');
-    $div_chessboard.appendChild($div_chessboard__cell_empty);
-
-    //нижний ряд блоков сформирован
-
-    //конец
-
-</script>
+    <script src="lesson-5-01.js"></script>
 
 </body>
 </html>

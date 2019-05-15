@@ -3,54 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Шахматная доска</title>
-    <style>
-        .chessboard {
-            width: 500px;
-            height: 500px;
-            border: solid 1px black;
-            display: grid;
-            grid-template-columns: repeat(10, 10%);
-            grid-template-rows: repeat(10, 10%);
-            font-size: x-large;
-            font-weight: 900;
-        }
-        .chessboard__cell_border-top {
-            transform: rotate(180deg);
-            text-align: center;
-            padding-top: 20%;
-            background-color: khaki;
-            border-top: solid 2px black;
-        }
-        .chessboard__cell_empty {
-            background-color: khaki;
-        }
-        .chessboard__cell_black {
-            background-color: #000000;
-        }
-        .chessboard__cell_wight {
-            background-color: khaki;
-        }
-        .chessboard__cell_border-left {
-            line-height: 50px;
-            text-align: right;
-            padding-right: 20%;
-            border-right: solid 2px black;
-            background-color: khaki;
-        }
-        .chessboard__cell_border-right {
-            line-height: 50px;
-            text-align: left;
-            padding-left: 20%;
-            border-left: solid 2px black;
-            background-color: khaki;
-        }
-        .chessboard__cell_border-bottom {
-            text-align: center;
-            padding-top: 20%;
-            background-color: khaki;
-            border-top: solid 2px black;
-        }
-    </style>
+    <link rel="stylesheet" href="lesson-5-01_style.css">
 </head>
 <body>
     <div class='chessboard'>
