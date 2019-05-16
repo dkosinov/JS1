@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина покупок</title>
+    <script src="catalogInit.js"></script>
+    <script src="objCart.js"></script>
+</head>
+<body>
+    <div class="container" id ='container'></div>
+
+    <script>
+        //Добавляем товары в корзину
+        objCart.addProductToCart('001',5);
+        objCart.addProductToCart('003',6);
+
+        objCart.getCartInfoPage();  //выводим состояние корзины
+    </script>
+
+</body>
+</html>
