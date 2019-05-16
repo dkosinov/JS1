@@ -1,0 +1,1739 @@
+$pink_color: #f16d7f
+
+$red_color: #ff0d0d
+
+=get-width_go-center($width)
+	width: $width
+	margin: 0 auto
+
+$small-container: 1140px
+
+$big-container: 1600px
+
+*
+	margin: 0
+	padding: 0
+
+body
+	font-family: 'Lato', sans-serif
+
+input:focus,
+a:focus,
+button:focus,
+summary:focus,
+select:focus
+	outline: none
+
+a
+	text-decoration: none
+
+._pink-text
+	color: $pink_color
+
+._red-text
+	color: $red_color
+
+.container
+	width: 1140px
+	margin: 0 auto
+
+
+.logo
+	display: -webkit-box
+	display: -ms-flexbox
+	display: flex
+	align-items: center
+	color: #222222
+	font-size: 27px
+	font-weight: 300
+	text-transform: uppercase
+	text-decoration: none
+	letter-spacing: 0.68px
+	
+	&__span
+		font-weight: 700
+		letter-spacing: 0.68px
+	
+	&__img
+		margin-right: 13px
+
+
+.header
+	height: 100px
+	background-color: #ffffff
+	border-bottom: 1px solid #ececec
+	
+	&-container
+		display: flex
+		justify-content: space-between
+		height: 100%
+	
+	&__content-left
+		display: -webkit-box
+		display: -ms-flexbox
+		display: flex
+		align-items: center
+	
+	&__search-form
+		display: -webkit-box
+		display: -ms-flexbox
+		display: flex
+		align-items: center
+		margin-left: 37px
+	
+	&__button-browse
+		width: 87px
+		height: 38px
+		border-radius: 3px 0 0 3px
+		border: 1px solid #e6e6e6
+		background-color: #e6e6e6
+		font-size: 14px
+		font-weight: 300
+		letter-spacing: 0.35px
+		color: #222222
+		text-align: center
+		line-height: 34px
+		box-sizing: border-box
+		display: flex
+		justify-content: center
+		position: relative
+		
+		&:after
+			content: '\25BE'
+			font-size: 24px
+			margin-left: 5px
+	
+	&__button-browse:hover
+		background-color: $pink_color
+		border: 1px solid $pink_color
+		color: #fff
+	
+	&__button-browse:hover &__drop-megamenu
+		display: block
+		text-align: left
+		position: absolute
+		top: 37px
+		left: 0
+		z-index: 1
+		
+		&:before
+			position: absolute
+			top: -7px
+			left: 62px
+	
+	&__search-text
+		width: 279px
+		height: 38px
+		border-bottom: 1px solid #e6e6e6
+		border-top: 1px solid #e6e6e6
+		border-left: none
+		border-right: none
+		background-color: #ffffff
+		color: #a4a4a4
+		font-size: 14px
+		font-weight: 300
+		letter-spacing: 0.35px
+		padding: 0 16px
+		box-sizing: border-box
+	
+	&__button-submit
+		color: #a4a4a4
+		font-size: 14px
+		font-weight: 400
+		height: 38px
+		width: 38px
+		line-height: 38px
+		border-radius: 0 3px 3px 0
+		border: 1px solid #e6e6e6
+		background-color: #e6e6e6
+	
+	&__button-submit:hover
+		color: #222222
+		cursor: pointer
+	
+	&__content-right
+		display: -webkit-box
+		display: -ms-flexbox
+		display: flex
+		align-items: center
+		position: relative
+		cursor: pointer
+		
+		&:hover .header__drop-cart
+			display: block
+		
+		&:hover .header__button-link
+			color: $pink_color
+			background-color: #fff
+	
+	
+	&__cart-img
+		display: block
+		height: 37px
+		width: 41px
+		margin-right: 22px
+	
+	
+	&__button-link
+		background-color: $pink_color
+		color: #ffffff
+		font-size: 15px
+		font-weight: 400
+		letter-spacing: 0.38px
+		line-height: 38px
+		padding: 0 19px 0 19px
+		outline: solid 2px $pink_color
+		display: flex
+		
+		&:after
+			content: '\25BE'
+			font-size: 24px
+			margin-left: 5px
+
+
+.drop-cart
+	border-radius: 5px
+	border: 1px solid #ececec
+	background-color: #ffffff
+	padding: 0 20px 12px
+	display: none
+	position: absolute
+	top: 82px
+	left: -28px
+	cursor: default
+	
+	&:before
+		content: ""
+		width: 11px
+		height: 11px
+		border-top: 1px solid #ececec
+		border-left: 1px solid #ececec
+		background-color: #ffffff
+		position: absolute
+		top: -7px
+		left: 45px
+		transform: rotate(45deg)
+	
+	&__item
+		width: 262px
+		margin-top: 22px
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding-bottom: 25px
+		border-bottom: 1px solid #eaeaea
+	
+	&__product-img
+		width: 72px !important
+		height: 85px !important
+		
+		&:hover
+			outline: 1px solid $pink_color
+	
+	&__product-stars
+		margin-top: 10px
+		margin-bottom: 10px
+	
+	&__product-quantity-price
+		color: #f16d7f
+		font-size: 12px
+		font-weight: 400
+		text-transform: uppercase
+		
+		_x
+			font-size: 10px
+	
+	&__product-action
+		color: #c0c0c0
+		font-size: 16px
+		font-weight: 400
+		text-transform: uppercase
+		margin-right: 20px
+	
+	&__total
+		margin-top: 19px
+		margin-bottom: 32px
+		color: #222222
+		font-size: 16px
+		font-weight: 700
+		text-transform: uppercase
+		display: flex
+		justify-content: space-between
+	
+	&__button
+		display: block
+		width: 100%
+		height: 50px
+		border: 1px solid #eaeaea
+		background-color: #ffffff
+		color: #4a4a4a
+		font-size: 14px
+		font-weight: 700
+		text-transform: uppercase
+		line-height: 50px
+		text-align: center
+		
+		&:hover
+			border: 1px solid #f16d7f
+			color: #f16d7f
+		
+		&:nth-of-type(1)
+			margin-bottom: 11px
+
+
+.menu
+	height: 51px
+	display: flex
+	justify-content: center
+	align-items: center
+	background-color: #ffffff
+	list-style-type: none
+	
+	&__list
+		position: relative
+	
+	&__list:hover .drop-megamenu
+		display: flex
+		
+	&__list:hover &__link
+		color: $pink_color
+	
+	&__link
+		display: block
+		color: #222222
+		font-size: 14px
+		font-weight: 700
+		text-transform: uppercase
+		text-decoration: none
+		padding: 0 20px
+		height: 51px
+		line-height: 51px
+	
+	&__link_active
+		border-bottom: 3px solid $pink_color
+		box-sizing: border-box
+
+
+.drop-megamenu
+	border-radius: 5px
+	border: 1px solid #ececec
+	background-color: #ffffff
+	padding: 0 20px 12px
+	display: none
+	position: absolute
+	top: 48px
+	left: -5px
+	
+	&:before
+		content: ""
+		width: 11px
+		height: 11px
+		border-top: 1px solid #ececec
+		border-left: 1px solid #ececec
+		background-color: #ffffff
+		position: absolute
+		top: -7px
+		left: 45px
+		transform: rotate(45deg)
+	
+	&__box
+		width: 235px
+		margin-right: 46px
+		position: relative
+	
+	&__box:last-of-type
+		margin-right: 0
+	
+	&_left
+		left: auto
+		right: -50px
+		
+		&:before
+			left: auto
+			right: 100px
+	
+	&__header
+		color: #232323
+		font-size: 14px
+		font-weight: 400
+		line-height: 32px
+		text-transform: uppercase
+		letter-spacing: 0.35px
+		border-bottom: 1px solid #e8e8e8
+		padding-top: 8px
+	
+	&__menu
+		list-style: none
+	
+	&__link
+		color: #646464
+		font-size: 14px
+		font-weight: 400
+		line-height: 28px
+		letter-spacing: 0.35px
+	
+	&__link:hover
+		color: $pink_color
+	
+	&__offer
+		width: 255px
+		height: 118px
+		position: absolute
+		left: -16px
+		bottom: 0
+	
+	&__offer-text
+		color: #ffffff
+		font-size: 22px
+		font-weight: 400
+		line-height: 28px
+		text-transform: uppercase
+		letter-spacing: 0.55px
+		display: block
+		position: absolute
+		bottom: 4px
+		right: 7px
+
+
+.promo
+	height: 613px
+	background-color: #e8e8e8
+	
+	&__content
+		background-image: url(img/brand_back.jpg)
+		height: 100%
+		background-position: 0 -51px
+	
+	.promo__text
+		margin-top: 223px
+		float: left
+		border-left: 12px solid $pink_color
+		padding-left: 12px
+		
+		&_big
+			color: #222222
+			font-size: 60px
+			font-weight: 700
+			text-transform: uppercase
+			line-height: 45px
+			margin-bottom: 15px
+		
+		&_mini
+			color: #222222
+			font-size: 40px
+			font-weight: 700
+			text-transform: uppercase
+			line-height: 31px
+
+
+.category-menu
+	height: 823px
+	padding-top: 98px
+	display: flex
+	flex-flow: column wrap
+	justify-content: space-between
+	align-content: space-between
+	
+	&__item
+		display: block
+		width: 560px
+		transition: all 0.3s
+		
+		&:hover
+			transform: scale(1.03)
+	
+	
+	&__item:nth-child(1)
+		background-image: url(img/badge_banner-1.jpg)
+		height: 542px
+	
+	&__item:nth-child(2)
+		background: #dadad2 url(img/badge_banner-2.jpg) no-repeat 149px 0
+		height: 261px
+	
+	&__item:nth-child(3)
+		background-image: url(img/badge_banner-3.jpg)
+		height: 261px
+	
+	&__item:nth-child(4)
+		background-image: url(img/badge_banner-4.jpg)
+		height: 542px
+	
+	&__badge
+		color: #222222
+		font-size: 18px
+		font-weight: 700
+		padding: 16px 20px 16px 20px
+		background-color: #ffffff
+		margin-top: 26px
+		text-transform: uppercase
+		float: left
+	
+	&__badge_big
+		font-size: 30px
+
+
+.product-mini
+	position: relative
+	text-align: left
+	width: 260px
+	margin-bottom: 40px
+	transition: all 0.3s
+	padding-bottom: 16px
+	
+	&:hover
+		transform: scale(1.03)
+		box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+	
+	&:hover &__img
+		filter: brightness(40%)
+	
+	&:hover .add-to-cart
+		visibility: visible
+	
+	&__text
+		padding: 20px 15px
+	
+	&__link
+		display: block
+		color: #222222
+		font-size: 13px
+		font-weight: 700
+		text-transform: uppercase
+	
+	&__price
+		color: $pink_color
+		font-size: 16px
+		font-weight: 700
+		text-transform: uppercase
+		margin-top: 16px
+		float: left
+	
+	&__stars
+		margin-top: 16px
+		float: right
+
+
+.add-to-cart
+	width: 123px
+	height: 39px
+	border: 1px solid #ffffff
+	border-radius: 3px
+	color: #ffffff
+	font-size: 13px
+	font-weight: 700
+	position: absolute
+	left: 70px
+	top: 98px
+	display: flex
+	justify-content: center
+	align-items: center
+	visibility: hidden
+	
+	&__img
+		margin-right: 8px
+	
+	&:hover
+		box-shadow: 0 0 5px #fff
+	
+	&_mod-3
+		border: none
+		width: 123px
+		height: 85px
+		position: absolute
+		left: 70px
+		top: 98px
+		visibility: hidden
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		align-content: space-between
+		
+		&:hover
+			box-shadow: none
+		
+		&__button
+			width: 57px
+			height: 39px
+			border: 1px solid #ffffff
+			border-radius: 3px
+			color: #ffffff
+			font-size: 13px
+			font-weight: 700
+			display: flex
+			justify-content: center
+			align-items: center
+			
+			&:hover
+				box-shadow: 0 0 5px #fff
+			
+			&_big
+				width: 123px
+
+
+.fetured-items
+	padding-top: 100px
+	
+	&__head
+		text-align: center
+	
+	&__head-text-1
+		font-size: 30px
+		font-weight: 700
+		letter-spacing: 0.75px
+	
+	&__head-text-2
+		color: #9f9f9f
+		font-size: 14px
+		font-weight: 400
+		letter-spacing: 0.35px
+	
+	&__content
+		margin-top: 60px
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+	
+	&__button-browse-all
+		text-align: center
+		display: block
+		text-decoration: none
+		margin: 60px auto 113px
+		background-color: $pink_color
+		width: 212px
+		height: 48px
+		line-height: 44px
+		color: #ffffff
+		font-size: 16px
+		font-weight: 700
+		letter-spacing: 0.4px
+		border: solid 1px $pink_color
+		box-sizing: border-box
+		
+		&:hover
+			color: $pink_color
+			background-color: #fff
+		
+		&:active
+			color: #fff
+			background-color: $pink_color
+
+
+.offer-for-women
+	&__content
+		display: flex
+		height: 529px
+		background-color: #222224
+		margin: 0 auto 97px
+	
+	&__left
+		width: 767px
+		background-image: url(img/offer_for_women.jpg)
+	
+	&__text
+		color: #ffffff
+		font-size: 54px
+		font-weight: 700
+		text-transform: uppercase
+		padding: 146px 0 0 39px
+	
+	&__text-small
+		font-size: 32px
+	
+	&__right
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		margin: 48px 43px 66px 32px
+		width: 363px
+	
+	&__tearms
+		display: flex
+		align-items: flex-start
+	
+	&__tearms-text
+		margin-left: 37px
+	
+	&__tearms-text-big
+		display: block
+		color: #fbfbfb
+		font-size: 20px
+		font-weight: 700
+		letter-spacing: 0.5px
+	
+	&__tearms-text-small
+		display: block
+		margin-top: 17px
+		color: #fbfbfb
+		font-size: 14px
+		font-weight: 300
+
+
+.subscribe
+	height: 438px
+	width: 1600px
+	background-image: url(img/subscribe_wallp.jpg)
+	background-position: -10px 0
+	margin: 0 auto
+	
+	&__content
+		height: 100%
+		display: flex
+		justify-content: flex-start
+	
+	&__left
+		margin-top: 111px
+	
+	&__face
+		float: left
+	
+	&__text-block
+		float: left
+		margin-left: 28px
+	
+	&__text-block-text-1
+		margin-top: 12px
+		width: 386px
+		color: #222224
+		font-size: 16px
+		font-style: italic
+		letter-spacing: 0.4px
+	
+	&__text-block-text-2
+		margin-top: 19px
+		color: $pink_color
+		font-size: 16px
+		font-weight: 700
+	
+	&__text-block-text-3
+		color: #222224
+		font-size: 12px
+		font-weight: 300
+		letter-spacing: 0.3px
+	
+	&__text-block-lines
+		width: 140px
+		margin-top: 41px
+		display: -webkit-box
+		display: -ms-flexbox
+		display: flex
+		justify-content: space-between
+	
+	&__text-block-line
+		display: block
+		width: 38px
+		height: 4px
+		background-color: #d6d6d6
+	
+	&__text-block-line:nth-child(2)
+		background-color: $pink_color
+	
+	&__right
+		margin: auto
+	
+	&__right-content
+		width: 386px
+		text-align: center
+	
+	&__right-content-text-1
+		color: #222224
+		font-size: 14px
+		font-weight: 400
+		font-size: 24px
+		letter-spacing: 0.6px
+		text-transform: uppercase
+		letter-spacing: 0.35px
+	
+	&__right-content-text-2
+		color: #222224
+		font-size: 14px
+		font-weight: 400
+		letter-spacing: 0.6px
+		text-transform: uppercase
+		letter-spacing: 0.35px
+	
+	&__email-form
+		display: flex
+	
+	&__email-input
+		margin-top: 35px
+		width: 282px
+		height: 46px
+		border-radius: 23px 0 0 23px
+		background-color: #e1e1e1
+		border: none
+		padding: 0 28px
+		box-sizing: border-box
+	
+	&__email-button
+		width: 104px
+		height: 46px
+		margin-top: 35px
+		border-radius: 0 23px 23px 0
+		background-color: $pink_color
+		color: #ffffff
+		font-size: 14px
+		font-weight: 400
+		letter-spacing: 0.35px
+		border: 1px solid $pink_color
+		cursor: pointer
+		
+		&:hover
+			background: $pink_color - 25
+		
+		&:active
+			color: #fff
+			background: $pink_color
+
+
+.footer
+	&__head
+		margin-top: 109px
+		display: flex
+		justify-content: space-between
+	
+	&__logo
+		width: 427px
+	
+	&__logo-text
+		display: block
+		margin-top: 29px
+		color: #898989
+		font-size: 14px
+		font-weight: 300
+		letter-spacing: 0.35px
+	
+	&__menu
+		list-style-type: none
+		width: 170px
+	
+	&__menu-head
+		color: $pink_color
+		font-size: 18px
+		font-weight: 700
+		text-transform: uppercase
+		letter-spacing: 0.45px
+		margin-bottom: 45px
+	
+	&__menu-link
+		display: block
+		color: #898989
+		font-size: 16px
+		font-weight: 400
+		letter-spacing: 0.4px
+		margin-bottom: 20px
+		
+		&:hover
+			color: $pink_color
+	
+	&__bottom
+		height: 79px
+		background-color: #e6e6e6
+		margin-top: 90px
+	
+	&__bottom-content
+		height: 100%
+		display: flex
+		justify-content: space-between
+		align-items: center
+	
+	&__copyright
+		color: #7a7a7a
+		font-size: 16px
+		font-weight: 400
+		letter-spacing: 0.4px
+	
+	&__sn-links
+		width: 191px
+		height: 32px
+		display: flex
+		justify-content: space-between
+	
+	&__sn-link
+		display: block
+		width: 32px
+		height: 32px
+		background-color: #ffffff
+		text-decoration: none
+		line-height: 32px
+		text-align: center
+		color: #b2b2b2
+		font-size: 16px
+		font-weight: 400
+		letter-spacing: 0.4px
+		
+		&:hover
+			background-color: $pink_color
+			color: #fff
+
+
+.breadcrumb
+	background-color: #f8f3f4
+	
+	&__content
+		height: 148px
+		background-color: #f8f3f4
+		display: flex
+		justify-content: space-between
+		align-items: center
+	
+	&__product-group-name
+		color: $pink_color
+		font-size: 24px
+		font-weight: 400
+		line-height: 20px
+		text-transform: uppercase
+	
+	&__link
+		color: #636363
+		font-size: 14px
+		font-weight: 300
+		line-height: 20px
+		text-transform: uppercase
+	
+	&__link:hover
+		text-decoration: underline
+	
+	&__active
+		font-size: 14px
+		font-weight: 700
+		line-height: 20px
+		text-transform: uppercase
+		color: $pink_color
+
+
+.product
+	&__slider
+		+get-width_go-center($big-container)
+		height: 777px
+		outline: 1px solid #eaeaea
+		background-color: #f7f7f7
+		display: flex
+		justify-content: space-between
+		align-items: center
+	
+	&__slider-link-box
+		display: block
+		width: 47px
+		height: 47px
+		color: #ffffff
+		font-size: 24px
+		font-weight: 400
+		line-height: 47px
+		background-color: #d8d8d8
+		text-align: center
+		
+		&:hover
+			background-color: #ffffff
+			color: #d8d8d8
+	
+	&__description
+		height: 730px
+		outline: 1px solid #eaeaea
+		background-color: #ffffff
+		position: relative
+		top: -80px
+	
+	&__description-content
+		width: 642px
+		margin: 0 auto
+		padding: 73px 250px 0
+		position: relative
+		display: flex
+		flex-direction: column
+		align-items: center
+	
+	&__collection-name
+		color: $pink_color
+		font-size: 14px
+		font-weight: 700
+		line-height: 24px
+		text-transform: uppercase
+		margin-bottom: 14px
+	
+	&__collection-line-1
+		width: 147px
+		height: 1px
+		background-color: #eaeaea
+	
+	&__collection-line-2
+		width: 63px
+		height: 3px
+		background-color: $pink_color
+		position: absolute
+		left: 538px
+		top: 110px
+	
+	&__product-name
+		color: #4d4d4d
+		font-size: 18px
+		font-weight: 700
+		line-height: 24px
+		text-transform: uppercase
+		margin-top: 17px
+		margin-bottom: 50px
+	
+	&__product-text
+		color: #5e5e5e
+		font-size: 14px
+		font-weight: 300
+		line-height: 24px
+		margin: 0 12px
+		text-align: center
+	
+	&__product-details
+		margin-top: 28px
+		display: flex
+		justify-content: center
+		color: #b9b9b9
+		font-family: Lato
+		font-size: 14px
+		font-weight: 700
+		line-height: 24px
+		text-transform: uppercase
+		
+		& span
+			color: #2f2f2f
+	
+	&__product-details-designer
+		margin-left: 44px
+	
+	&__product-price
+		margin-top: 35px
+		color: $pink_color
+		font-size: 24px
+		font-weight: 900
+		line-height: 24px
+	
+	&__price-line
+		width: 642px
+		height: 1px
+		background-color: #eaeaea
+		margin-top: 30px
+		margin-bottom: 40px
+	
+	&__select-group
+		width: 536px
+		display: flex
+		justify-content: space-between
+		margin-bottom: 28px
+	
+	&__input-title
+		color: #2f2f2f
+		font-size: 14px
+		font-weight: 700
+		line-height: 24px
+		text-transform: uppercase
+		margin-bottom: 16px
+	
+	&__input
+		width: 144px
+		height: 35px
+		border: 1px solid #eaeaea
+		background-color: #ffffff
+		padding: 0 12px
+		color: #bcbcbc
+		font-size: 13px
+		font-weight: 400
+		line-height: 24px
+		text-transform: uppercase
+		
+		&:hover
+			outline: 1px solid $pink_color
+	
+	&__add-to-cart-button
+		width: 537px
+		height: 55px
+		border: 1px solid $pink_color
+		background-color: #ffffff
+		color: $pink_color
+		font-size: 16px
+		font-weight: 700
+		display: flex
+		justify-content: center
+		align-items: center
+	
+	&__add-to-cart-img
+		width: 40px
+		height: 26px
+		background: #ffffff url('img/cart-pink.svg') no-repeat
+	
+	&__add-to-cart-button:hover
+		border: 1px solid #ffffff
+		background-color: $pink_color
+		color: #ffffff
+	
+	&__add-to-cart-button:hover &__add-to-cart-img
+		background: $pink_color url('img/cart-2.svg') no-repeat
+	
+	&__add-to-cart-button:active
+		border: 1px solid $pink_color
+		background-color: #ffffff
+		color: $pink_color
+	
+	&__add-to-cart-button:active &__add-to-cart-img
+		background: #ffffff url('img/cart-pink.svg') no-repeat
+
+
+.also-like
+	&__head
+		color: #4d4d4d
+		font-size: 24px
+		font-weight: 700
+		line-height: 20px
+		text-transform: uppercase
+		text-align: center
+	
+	&__products
+		margin-top: 72px
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+
+
+.breadcrumb-catalog-margin-block
+	height: 60px
+
+.spoiler-nav
+	&__box
+		margin-bottom: 18px
+		
+		&[open] .spoiler-nav__title::after
+			content: '\25BE'
+			position: absolute
+			right: 10px
+			bottom: 7px
+			font-size: 24px
+			width: 24px
+			height: 24px
+			text-align: center
+			line-height: 24px
+			color: $pink_color
+			display: block
+			background-color: #ffffff
+	
+	&__title
+		display: flex
+		justify-content: space-between
+		align-items: center
+		position: relative
+		border-left: solid 5px #ef5b70
+		height: 37px
+		border-bottom: 1px solid #ebebeb
+		text-align: left
+		line-height: 37px
+		color: $pink_color
+		font-size: 14px
+		font-weight: 700
+		text-transform: uppercase
+		padding: 0 10px
+		cursor: pointer
+		
+		&::-webkit-details-marker
+			display: none
+		
+		::after
+			content: '\25B4'
+			position: absolute
+			right: 10px
+			bottom: 7px
+			font-size: 24px
+			width: 24px
+			height: 24px
+			text-align: center
+			line-height: 24px
+			color: $pink_color
+	
+	&__item
+		font-size: 14px
+		font-weight: 400
+		line-height: 33px
+		padding: 0 16px
+	
+	&__link
+		color: #6f6e6e
+	
+	&__link:hover
+		color: $pink_color
+
+
+.catalog
+	display: flex
+	justify-content: space-between
+	
+	&__spoiler-nav
+		width: 243px
+	
+	&__container
+		width: 848px
+	
+	&__filter
+		height: 74px
+		display: flex
+		justify-content: space-between
+	
+	&__filter-box
+		width: 263px
+	
+	&__filter-title
+		color: #6f6e6e
+		font-size: 14px
+		font-weight: 700
+		line-height: 20px
+		text-transform: uppercase
+		margin-bottom: 10px
+	
+	&__filter-link
+		color: #6f6e6e
+		font-size: 14px
+		font-weight: 400
+		line-height: 31px
+		
+		&:hover
+			color: $pink_color
+		
+		&_center
+			margin-left: 20px
+			margin-right: 20px
+			padding-left: 20px
+			padding-right: 20px
+			border-left: #dfdfdf solid 1px
+			border-right: #dfdfdf solid 1px
+	
+	&__filter-group-check-box
+		display: flex
+		flex-wrap: wrap
+	
+	&__filter-group-check-box-item
+		margin-right: 25px
+		margin-top: 7px
+		display: flex
+		align-items: center
+	
+	&__filter-group-check-box-label
+		color: #6f6e6e
+		font-size: 14px
+		font-weight: 400
+		line-height: 20px
+		text-transform: uppercase
+		display: flex
+		flex-direction: row
+		align-items: center
+		
+		&:before
+			content: ''
+			width: 13px
+			height: 13px
+			margin-right: 10px
+			border: 1px solid #ebebeb
+			background-color: #ffffff
+	
+	&__filter-group-check-box-input
+		display: none
+		
+		&:checked + label:before
+			content: '\2713'
+			font-size: 13px
+			color: #6f6e6e
+			text-align: center
+			line-height: 13px
+	
+	&__view
+		height: 50px
+		margin-top: 41px
+		background-color: #f3f3f3
+		display: flex
+		align-items: center
+	
+	&__view-select-box
+		margin-left: 10px
+		height: 30px
+		border: 1px solid #ebebeb
+		background-color: #ffffff
+		display: flex
+		justify-content: space-between
+	
+	&__view-select-caption
+		height: 30px
+		line-height: 30px
+		padding: 0 10px
+		color: #6f6e6e
+		font-size: 14px
+		font-weight: 400
+		border-right: solid 1px #ebebeb
+	
+	&__view-select
+		margin-left: 10px
+		color: #6f6e6e
+		font-size: 14px
+		font-weight: 400
+		border: none
+	
+	&__content
+		width: 100%
+		display: -webkit-box
+		display: -ms-flexbox
+		display: flex
+		flex-flow: row wrap
+		justify-content: space-between
+		margin-top: 48px
+	
+	&__bottom
+		display: flex
+		justify-content: space-between
+	
+	&__pagination
+		width: 261px
+		height: 44px
+		border-radius: 3px
+		border: 1px solid #ebebeb
+		background-color: #ffffff
+	
+	&__button-view-all
+		width: 150px
+		height: 44px
+		border: 1px solid $pink_color
+		border-radius: 3px
+		background-color: #ffffff
+		color: $pink_color
+		font-size: 16px
+		font-weight: 700
+		line-height: 44px
+		text-align: center
+		
+		&:hover
+			border: 1px solid #ffffff
+			background-color: $pink_color
+			color: #ffffff
+		
+		&:active
+			border: 1px solid $pink_color
+			background-color: #ffffff
+			color: $pink_color
+
+
+.catalog-terms-margin-block
+	height: 110px
+
+.tearms
+	background-color: #222224
+	width: 1600px
+	height: 341px
+	margin: 0 auto
+	
+	&__container
+		display: -webkit-box
+		display: -ms-flexbox
+		display: flex
+		-webkit-box-pack: justify
+		-ms-flex-pack: justify
+		justify-content: space-between
+		padding: 89px 26px 0
+		-webkit-box-sizing: border-box
+		box-sizing: border-box
+		background-color: #222224
+	
+	&__item
+		text-align: center
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: center
+		width: 315px
+		height: 158px
+	
+	&__text-big
+		display: block
+		color: #fbfbfb
+		font-size: 20px
+		font-weight: 700
+		letter-spacing: 0.5px
+		margin: 23px 0 21px
+	
+	&__text-small
+		display: block
+		color: #fbfbfb
+		font-size: 14px
+		font-weight: 300
+		line-height: 24px
+		letter-spacing: 0.35px
+
+
+.cart
+	&__container
+		margin-top: 90px
+		margin-bottom: 80px
+	
+	&__head
+		display: flex
+		justify-content: space-between
+		padding-bottom: 20px
+		border-bottom: 1px solid #eaeaea
+	
+	&__head-text
+		color: #222222
+		font-size: 13px
+		font-weight: 700
+		line-height: 20px
+		text-transform: uppercase
+	
+	&__column-1
+		width: 100%/12*5
+	
+	&__item
+		margin-top: 22px
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding-bottom: 25px
+		border-bottom: 1px solid #eaeaea
+	
+	&__product
+		display: flex
+	
+	&__product-img
+		width: 100px
+		height: 115px
+	
+	&__product-link:hover
+		box-sizing: border-box
+		outline: 1px solid $pink_color
+	
+	&__product-text
+		margin-left: 21px
+		text-align: left
+	
+	&__product-name
+		color: #222222
+		font-size: 13px
+		font-weight: 400
+		text-transform: uppercase
+		margin-bottom: 11px
+	
+	&__product-color
+		color: #6f6e6e
+		font-size: 13px
+		font-weight: 300
+		line-height: 20px
+	
+	&__product-color-data
+		font-weight: 300
+		margin-left: 5px
+	
+	&__product-size
+		color: #6f6e6e
+		font-size: 13px
+		font-weight: 300
+		line-height: 20px
+	
+	&__product-size-data
+		font-weight: 300
+		margin-left: 5px
+	
+	&__product-price
+		color: #656565
+		font-size: 13px
+		font-weight: 400
+		line-height: 20px
+	
+	&__product-quantity
+		margin-left: 20px
+	
+	&__product-quantity-input
+		width: 54px
+		height: 30px
+		border: 1px solid #eaeaea
+		background-color: #ffffff
+		text-align: center
+		padding: 0 5px
+		
+		&:hover
+			border: 2px solid $pink_color
+	
+	&__product-shipping
+		text-align: left
+		margin-right: 20px
+		color: #656565
+		font-size: 13px
+		font-weight: 400
+		line-height: 20px
+		text-transform: uppercase
+	
+	&__product-subtotal
+		color: #656565
+		font-size: 13px
+		font-weight: 400
+		line-height: 20px
+		margin-right: 20px
+	
+	&__product-action-link
+		color: #c0c0c0
+		font-size: 16px
+		font-weight: 400
+		text-transform: uppercase
+		margin-right: 20px
+		
+		&:hover
+			color: $pink_color
+	
+	&__buttons
+		display: flex
+		justify-content: space-between
+		margin-top: 44px
+	
+	&__button
+		display: block
+		width: 235px
+		height: 50px
+		border: 1px solid #eaeaea
+		background-color: #ffffff
+		color: #4a4a4a
+		font-size: 14px
+		font-weight: 700
+		text-transform: uppercase
+		line-height: 50px
+		text-align: center
+		
+		&:hover
+			border: 1px solid #f16d7f
+			color: #f16d7f
+	
+	&__details
+		margin-top: 63px
+		display: flex
+		justify-content: space-between
+	
+	&__adress
+		width: 355px
+	
+	&__details-title
+		color: #222222
+		font-size: 16px
+		font-weight: 700
+		text-transform: uppercase
+		margin-bottom: 22px
+	
+	&__details-input
+		width: 355px
+		height: 45px
+		border: 1px solid #eaeaea
+		background-color: #ffffff
+		color: #b1b1b1
+		font-size: 13px
+		font-weight: 300
+		padding: 0 18px
+		box-sizing: border-box
+		margin-bottom: 20px
+		
+		&:hover
+			outline: 1px solid $pink_color
+	
+	
+	&__button_small
+		width: 100px
+		height: 35px
+		line-height: 35px
+		font-size: 11px
+		margin-top: 5px
+	
+	&__coupon-caption
+		color: #000000
+		font-size: 14px
+		font-weight: 300
+		margin-bottom: 24px
+	
+	&__total
+		width: 360px
+		height: 214px
+		background-color: #f5f3f3
+		text-align: right
+		padding: 40px 44px 42px
+		box-sizing: border-box
+	
+	&__total-subtotal
+		color: #4a4a4a
+		font-size: 11px
+		font-weight: 400
+		text-transform: uppercase
+		margin-bottom: 14px
+	
+	&__total-subtotal > span
+		margin-left: 15px
+	
+	&__total-grandtotal
+		color: #222222
+		font-size: 16px
+		font-weight: 700
+		text-transform: uppercase
+		padding-bottom: 22px
+		margin-bottom: 17px
+		border-bottom: solid 1px #e2e2e2
+	
+	&__total-grandtotal > span
+		margin-left: 15px
+	
+	&__total-button
+		display: block
+		width: 273px
+		height: 50px
+		background-color: $pink_color
+		color: #ffffff
+		font-size: 16px
+		font-weight: 700
+		text-transform: uppercase
+		text-align: center
+		line-height: 50px
+		
+		&:hover
+			background-color: #f5f3f3
+			color: $pink_color
+			outline: solid 1px $pink_color
+
+
+.stars
+	display: flex
+	
+	&__star
+		color: #ffffff
+		font-size: 13px
+		
+		&_active
+			color: #e4af48
+
+
+.checkout
+	&__container
+		padding: 90px 0
+		
+	&__details
+		border-bottom: solid 1px #e8e8e8
+	
+	&__details-title
+		display: block
+		color: #222222
+		font-size: 16px
+		font-weight: 700
+		text-transform: uppercase
+		cursor: pointer
+		margin-top: 33px
+		padding-bottom: 33px
+		
+		&::-webkit-details-marker
+			display: none
+	
+	&__details-box
+		display: flex
+		padding: 0 35px 80px
+	
+	&__details-form
+		width: 50%
+	
+	&__details-note
+		display: block
+		color: #222222
+		font-size: 13px
+		font-weight: 400
+		text-transform: uppercase
+		margin-bottom: 15px
+		
+		&_s
+			color: #b3b2b2
+			font-size: 13px
+			font-weight: 400
+			line-height: 20px
+			margin-bottom: 27px
+	
+	&__details-radio-box
+		&:nth-of-type(1)
+			margin-bottom: 20px
+		
+		&:nth-of-type(2)
+			margin-bottom: 33px
+	
+	&__details-radio
+		display: none
+		
+		&:checked + label:before
+			content: ''
+			display: inline-block
+			width: 14px
+			height: 14px
+			margin-right: 15px
+			background-image: url(img/chkbx_true.svg)
+	
+	&__details-radio-label
+		color: #222222
+		font-size: 12px
+		font-weight: 400
+		text-transform: uppercase
+		display: flex
+		align-items: center
+		
+		&:before
+			content: ''
+			display: inline-block
+			width: 14px
+			height: 14px
+			margin-right: 15px
+			background-image: url(img/chkbx_false.svg)
+	
+	&__details-link
+		display: block
+		color: #b3b2b2
+		font-size: 13px
+		font-weight: 400
+		line-height: 20px
+		
+		&:hover
+			color: $pink_color
+	
+	&__details-btn
+		width: 180px
+		height: 50px
+		border: 1px solid #eaeaea
+		background-color: #ffffff
+		color: #4a4a4a
+		font-size: 14px
+		font-weight: 700
+		text-transform: uppercase
+		margin-top: 38px
+		
+		&:hover
+			border: 1px solid $pink_color
+			color: $pink_color
+			cursor: pointer
+		
+		&_right
+			margin-top: 0px
+	
+	&__details-input-label
+		color: #222222
+		font-size: 12px
+		font-weight: 400
+		line-height: 20px
+		text-transform: uppercase
+		margin-bottom: 15px
+	
+	&__details-input
+		display: block
+		width: 390px
+		height: 43px
+		border: 1px solid #eaeaea
+		background-color: #ffffff
+		padding: 0 10px
+		line-height: 45px
+		margin-bottom: 23px
+	
+	&__details-forgot-password-link
+		display: inline-block
+		color: #222222
+		font-size: 14px
+		font-weight: 400
+		height: 32px
+		line-height: 32px
+		margin-left: 32px
+		
+		&:hover
+			color: $pink_color
+
+
