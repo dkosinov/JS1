@@ -2,12 +2,417 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Shopping_cart</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css">
-    <script src="catalogInit.js"></script>
-    <script src="objCart.js"></script>
+    <script src="catalogInit.js">//Создадим объекты товаров каталога</script>
+    <script src="obj_cart.js">//Создадим объект корзины</script>
+    <script>
+        function myInitPage() {
+            console.log('Загрузка завершена!');
+
+            //Добавляем товары в корзину
+            objCart.addProductToCart('001',3);
+            objCart.addProductToCart('002',8);
+            objCart.addProductToCart('003',6);
+
+            //вызов функции вывода карзины в страницу
+            objCart.loadCartProductListInPage();
+        }
+        window.addEventListener('load', myInitPage);
+
+    </script>
 </head>
 <body>
+
+<!--    <main class="container catalog">-->
+<!--        <nav class="catalog__spoiler-nav spoiler-nav">-->
+<!--            <details class="spoiler-nav__box">-->
+<!--                <summary class="spoiler-nav__title">-->
+<!--                    <p>Category</p>-->
+<!--                </summary>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Accessories</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Bags</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Denim</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Hoodies & Sweatshirts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Jackets & Coats</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Pants</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Polos</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shirts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shoes</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shorts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Sweaters & Knits</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">T-Shirts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Tanks</a></p>-->
+<!--            </details>-->
+<!--            <details class="spoiler-nav__box">-->
+<!--                <summary class="spoiler-nav__title">-->
+<!--                    <p>BRAND</p>-->
+<!--                </summary>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Accessories</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Bags</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Denim</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Hoodies & Sweatshirts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Jackets & Coats</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Pants</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Polos</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shirts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shoes</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shorts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Sweaters & Knits</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">T-Shirts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Tanks</a></p>-->
+<!--            </details>-->
+<!--            <details class="spoiler-nav__box">-->
+<!--                <summary class="spoiler-nav__title">-->
+<!--                    <p>DESIGNER</p>-->
+<!--                </summary>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Accessories</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Bags</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Denim</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Hoodies & Sweatshirts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Jackets & Coats</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Pants</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Polos</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shirts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shoes</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shorts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Sweaters & Knits</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">T-Shirts</a></p>-->
+<!--                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Tanks</a></p>-->
+<!--            </details>-->
+<!--        </nav>-->
+<!--        <div class="catalog__container">-->
+<!--            <div class="catalog__filter">-->
+<!--                <div class="catalog__filter-box">-->
+<!--                    <div class="catalog__filter-title">Trending now</div>-->
+<!--                    <div class="catalog__filter-group-links">-->
+<!--                        <a href="#" class="catalog__filter-link">Bohemian</a>-->
+<!--                        <a href="#" class="catalog__filter-link catalog__filter-link_center">Floral</a>-->
+<!--                        <a href="#" class="catalog__filter-link">Lace</a><br>-->
+<!--                        <a href="#" class="catalog__filter-link">Floral</a>-->
+<!--                        <a href="#" class="catalog__filter-link catalog__filter-link_center">Lace</a>-->
+<!--                        <a href="#" class="catalog__filter-link">Bohemian</a>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="catalog__filter-box">-->
+<!--                    <div class="catalog__filter-title">Size</div>-->
+<!--                    <div class="catalog__filter-group-check-box">-->
+<!--                        <span class="catalog__filter-group-check-box-item"><input-->
+<!--                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="XXS"><label-->
+<!--                                for="XXS" class="catalog__filter-group-check-box-label">XXS</label></span>-->
+<!--                        <span class="catalog__filter-group-check-box-item"><input-->
+<!--                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="XS"><label-->
+<!--                                for="XS" class="catalog__filter-group-check-box-label">XS</label></span>-->
+<!--                        <span class="catalog__filter-group-check-box-item"><input-->
+<!--                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="S"><label for="S"-->
+<!--                                                                                                                    class="catalog__filter-group-check-box-label">S</label></span>-->
+<!--                        <span class="catalog__filter-group-check-box-item"><input-->
+<!--                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="M"><label for="M"-->
+<!--                                                                                                                    class="catalog__filter-group-check-box-label">M</label></span>-->
+<!--                        <span class="catalog__filter-group-check-box-item"><input-->
+<!--                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="L"><label for="L"-->
+<!--                                                                                                                    class="catalog__filter-group-check-box-label">L</label></span>-->
+<!--                        <span class="catalog__filter-group-check-box-item"><input-->
+<!--                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="XL"><label-->
+<!--                                for="XL" class="catalog__filter-group-check-box-label">XL</label></span>-->
+<!--                        <span class="catalog__filter-group-check-box-item"><input-->
+<!--                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="XXL"><label-->
+<!--                                for="XXL" class="catalog__filter-group-check-box-label">XXL</label></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="catalog__filter-box">-->
+<!--                    <div class="catalog__filter-title">PRICE</div>-->
+<!--                    <div class="catalog__filter-group">диапазон цены</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="catalog__view">-->
+<!--                    <span class="catalog__view-select-box">-->
+<!--                        <span class="catalog__view-select-caption">Sort By</span>-->
+<!--                        <select name="" id="" class="catalog__view-select" caption>-->
+<!--                            <option value="" name="">Name</option>-->
+<!--                        </select>-->
+<!--                    </span>-->
+<!--                <span class="catalog__view-select-box">-->
+<!--                            <span class="catalog__view-select-caption">Show</span>-->
+<!--                            <select name="" id="" class="catalog__view-select" caption>-->
+<!--                                <option value="" name="">09</option>-->
+<!--                            </select>-->
+<!--                        </span>-->
+<!--            </div>-->
+<!--            <div class="catalog__content">-->
+<!--                <div class="product-mini">-->
+<!--                    <a href="#" class="product-mini__link"><img src="img/product/product-1.jpg" alt="item_img"-->
+<!--                                                                class="product-mini__img"></a>-->
+<!--                    <div class="product-mini__text"><a class="product-mini__link" href="#">-->
+<!--                        Mango People T-shirt-->
+<!--                    </a>-->
+<!--                        <p class="product-mini__price"> $52.00 </p>-->
+<!--                        <div class="product-mini__stars stars">-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="add-to-cart add-to-cart_mod-3">-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img-->
+<!--                                class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"-->
+<!--                                                                           src="img/recicle.svg" alt="recicle"></a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"-->
+<!--                                                                           alt="hard"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="product-mini">-->
+<!--                    <a href="#" class="product-mini__link"><img src="img/product/product-2.jpg" alt="item_img"-->
+<!--                                                                class="product-mini__img"></a>-->
+<!--                    <div class="product-mini__text"><a class="product-mini__link" href="#">-->
+<!--                        Mango People T-shirt-->
+<!--                    </a>-->
+<!--                        <p class="product-mini__price"> $52.00 </p>-->
+<!--                        <div class="product-mini__stars stars">-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="add-to-cart add-to-cart_mod-3">-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img-->
+<!--                                class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"-->
+<!--                                                                           src="img/recicle.svg" alt="recicle"></a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"-->
+<!--                                                                           alt="hard"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="product-mini">-->
+<!--                    <a href="#" class="product-mini__link"><img src="img/product/product-3.jpg" alt="item_img"-->
+<!--                                                                class="product-mini__img"></a>-->
+<!--                    <div class="product-mini__text"><a class="product-mini__link" href="#">-->
+<!--                        Mango People T-shirt-->
+<!--                    </a>-->
+<!--                        <p class="product-mini__price"> $52.00 </p>-->
+<!--                        <div class="product-mini__stars stars">-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="add-to-cart add-to-cart_mod-3">-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img-->
+<!--                                class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"-->
+<!--                                                                           src="img/recicle.svg" alt="recicle"></a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"-->
+<!--                                                                           alt="hard"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="product-mini">-->
+<!--                    <a href="#" class="product-mini__link"><img src="img/product/product-4.jpg" alt="item_img"-->
+<!--                                                                class="product-mini__img"></a>-->
+<!--                    <div class="product-mini__text"><a class="product-mini__link" href="#">-->
+<!--                        Mango People T-shirt-->
+<!--                    </a>-->
+<!--                        <p class="product-mini__price"> $52.00 </p>-->
+<!--                        <div class="product-mini__stars stars">-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="add-to-cart add-to-cart_mod-3">-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img-->
+<!--                                class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"-->
+<!--                                                                           src="img/recicle.svg" alt="recicle"></a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"-->
+<!--                                                                           alt="hard"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="product-mini">-->
+<!--                    <a href="#" class="product-mini__link"><img src="img/product/product-5.jpg" alt="item_img"-->
+<!--                                                                class="product-mini__img"></a>-->
+<!--                    <div class="product-mini__text"><a class="product-mini__link" href="#">-->
+<!--                        Mango People T-shirt-->
+<!--                    </a>-->
+<!--                        <p class="product-mini__price"> $52.00 </p>-->
+<!--                        <div class="product-mini__stars stars">-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="add-to-cart add-to-cart_mod-3">-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img-->
+<!--                                class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"-->
+<!--                                                                           src="img/recicle.svg" alt="recicle"></a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"-->
+<!--                                                                           alt="hard"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="product-mini">-->
+<!--                    <a href="#" class="product-mini__link"><img src="img/product/product-6.jpg" alt="item_img"-->
+<!--                                                                class="product-mini__img"></a>-->
+<!--                    <div class="product-mini__text"><a class="product-mini__link" href="#">-->
+<!--                        Mango People T-shirt-->
+<!--                    </a>-->
+<!--                        <p class="product-mini__price"> $52.00 </p>-->
+<!--                        <div class="product-mini__stars stars">-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="add-to-cart add-to-cart_mod-3">-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img-->
+<!--                                class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"-->
+<!--                                                                           src="img/recicle.svg" alt="recicle"></a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"-->
+<!--                                                                           alt="hard"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="product-mini">-->
+<!--                    <a href="#" class="product-mini__link"><img src="img/product/product-7.jpg" alt="item_img"-->
+<!--                                                                class="product-mini__img"></a>-->
+<!--                    <div class="product-mini__text"><a class="product-mini__link" href="#">-->
+<!--                        Mango People T-shirt-->
+<!--                    </a>-->
+<!--                        <p class="product-mini__price"> $52.00 </p>-->
+<!--                        <div class="product-mini__stars stars">-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="add-to-cart add-to-cart_mod-3">-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img-->
+<!--                                class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"-->
+<!--                                                                           src="img/recicle.svg" alt="recicle"></a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"-->
+<!--                                                                           alt="hard"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="product-mini">-->
+<!--                    <a href="#" class="product-mini__link"><img src="img/product/product-8.jpg" alt="item_img"-->
+<!--                                                                class="product-mini__img"></a>-->
+<!--                    <div class="product-mini__text"><a class="product-mini__link" href="#">-->
+<!--                        Mango People T-shirt-->
+<!--                    </a>-->
+<!--                        <p class="product-mini__price"> $52.00 </p>-->
+<!--                        <div class="product-mini__stars stars">-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="add-to-cart add-to-cart_mod-3">-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img-->
+<!--                                class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"-->
+<!--                                                                           src="img/recicle.svg" alt="recicle"></a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"-->
+<!--                                                                           alt="hard"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="product-mini">-->
+<!--                    <a href="#" class="product-mini__link"><img src="img/product/product-9.jpg" alt="item_img"-->
+<!--                                                                class="product-mini__img"></a>-->
+<!--                    <div class="product-mini__text"><a class="product-mini__link" href="#">-->
+<!--                        Mango People T-shirt-->
+<!--                    </a>-->
+<!--                        <p class="product-mini__price"> $52.00 </p>-->
+<!--                        <div class="product-mini__stars stars">-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                            <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="add-to-cart add-to-cart_mod-3">-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img-->
+<!--                                class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"-->
+<!--                                                                           src="img/recicle.svg" alt="recicle"></a>-->
+<!--                        <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"-->
+<!--                                                                           alt="hard"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="catalog__bottom">-->
+<!--                <div class="catalog__pagination">Pagination</div>-->
+<!--                <a href="#" class="catalog__view-all-link">-->
+<!--                    <div class="catalog__button-view-all">View All</div>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </main>-->
+
+
+    <main class="cart">
+        <div class="container cart__container">
+            <div id = 'cart__content' class="cart__content">
+                <div class="cart__head">
+                    <div class="cart__column-1 cart__head-text">Product Details</div>
+                    <div class="cart__column-2 cart__head-text">unite Price</div>
+                    <div class="cart__column-3 cart__head-text">Quantity</div>
+                    <div class="cart__column-4 cart__head-text">shipping</div>
+                    <div class="cart__column-5 cart__head-text">Subtotal</div>
+                    <div class="cart__column-6 cart__head-text">ACTION</div>
+                </div>
+                <div id="cart_products_container"></div>
+            <div class="cart__buttons">
+                <a href="" class="cart__button">Shipping Adress</a>
+                <a href="" class="cart__button">cONTINUE sHOPPING</a>
+            </div>
+            <div class="cart__details">
+                <div class="cart__adress">
+                    <p href="" class="cart__details-title">Shipping Adress</p>
+                    <select name="" id="" class="cart__details-input cart__adress-country">
+                        <option value="Bangladesh">Bangladesh</option>
+                    </select>
+                    <input type="text" class="cart__details-input cart__adress-state" placeholder="State">
+                    <input type="text" class="cart__details-input cart__adress-zip" placeholder="Postcode / Zip">
+                </div>
+                <div class="cart__coupon">
+                    <p href="" class="cart__details-title">coupon  discount</p>
+                    <div class="cart__coupon-caption">Enter your coupon code if you have one</div>
+                    <input type="text" class="cart__details-input cart__coupon-code" placeholder="000000">
+                    <a href="" class="cart__button cart__button_small">Apply coupon</a>
+                </div>
+                <div class="cart__total">
+                    <p class="cart__total-subtotal">Sub total <span id = "subTotalSumm">$900</span></p>
+                    <p class="cart__total-grandtotal">grand total <span id = "grandTotalSumm" class="_pink-text">$900</span></p>
+                    <a href="#" class="cart__total-button">proceed to checkout</a>
+                </div>
+            </div>
+            <a href="" class="cart__button cart__button_small">get a quote</a>
+        </div>
+    </main>
+
 
 </body>
 </html>
