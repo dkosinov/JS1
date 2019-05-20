@@ -404,6 +404,10 @@ a {
     filter: brightness(40%); }
   .product-mini:hover .add-to-cart {
     visibility: visible; }
+  /*добавить это в sass!!!*/
+  .product-mini__img {
+    width: 263px;
+    height: 280px; }
   .product-mini__text {
     padding: 20px 15px; }
   .product-mini__link {

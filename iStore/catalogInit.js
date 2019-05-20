@@ -130,15 +130,16 @@ var objCatalog = {
     loadCatalogInPage : function () {
         $catalog_container = document.querySelector('#catalog_container');
         //removeCartProductsFromNode($cart_products_container); //почистим корзину на странице
-        //console.log($cart_products_container);
+        console.log($cart_products_container);
         if (productsBase.length === 0) {
             //
         }  else {
             for (var i = 0; i < productsBase.length; i++) {
                 $catalog__item = document.createElement('div');
-                $catalog__item.dataset.sn = i;
+                $catalog__item.dataset.sn = i; //поменять на id
                 console.log(productsBase[i]);
-                $catalog__item.className = 'catalog__item product-mini';
+                $catalog__item.className = 'product-mini';
+                //$catalog__item.id = 'catalog__item';
                 $catalog_container.appendChild($catalog__item);
                 $catalog__item.innerHTML = '                    <a href="#" class="product-mini__link"><img src=' + productsBase[i].imgM + ' alt="item_img"\n' +
                     '                                                                class="product-mini__img"></a>\n' +
