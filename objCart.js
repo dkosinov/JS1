@@ -63,7 +63,7 @@ var objCart = {
             }
         }
     },
-    removeProductFromCart : function (_id) {
+    removeItemFromCart : function (_id) {
         //
     },
     viewProductInSinglePage : function (pID) {

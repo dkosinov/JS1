@@ -98,30 +98,12 @@ var productsBase = [
         price : 1200.00,
     },
 ];
-function isProductInCart(_id) {
-    for (var i = 0; i < objCart.productList.length; i++) {
-        if (objCart.productList[i].objProduct.id === _id)
-            return true;
-    }
-    return false;
-}
-
 function handleCatalogButtonClick(event) {
     console.log(event.target.id);
     switch (event.target.id) {
         case 'addItemToCartButton' : {
-            //Проверка на наличие данного товара в корзине
-            //console.log();
-            console.log(event.currentTarget.dataset.sn);
-            console.log(productsBase[event.currentTarget.dataset.sn].id);
-            if (isProductInCart(productsBase[event.currentTarget.dataset.sn].id)) {
-                alert('Данный товар уже в козине');
-            }
-            else {
-                console.log('нет такого, добавляем');
-                objCart.addProductToCart(productsBase[event.currentTarget.dataset.sn].id,1); //Добавляем новый товар в массив корзины
-                objCart.loadCartProductListInPage(); //обновляем товары на странице
-            }
+            console.log('event.currentTarget.dataset.product_id = ' + event.currentTarget.dataset.product_id);
+            objCart.addProductToCart(event.currentTarget.dataset.product_id);
             break;
         }
     }
@@ -136,8 +118,8 @@ var objCatalog = {
         }  else {
             for (var i = 0; i < productsBase.length; i++) {
                 $catalog__item = document.createElement('div');
-                $catalog__item.dataset.sn = i; //поменять на id
-                console.log(productsBase[i]);
+                $catalog__item.dataset.product_id = productsBase[i].id;
+                console.log('$catalog__item.dataset.product_id = ' + $catalog__item.dataset.product_id);
                 $catalog__item.className = 'product-mini';
                 //$catalog__item.id = 'catalog__item';
                 $catalog_container.appendChild($catalog__item);
