@@ -104,6 +104,7 @@ function handleCatalogButtonClick(event) {
         case 'addItemToCartButton' : {
             console.log('event.currentTarget.dataset.product_id = ' + event.currentTarget.dataset.product_id);
             ProductCart_Model.addProductToCart(+event.currentTarget.dataset.product_id);
+            ProductCart_View.loadCartProductListInPage(); //обновляем товары корзины на странице
             break;
         }
     }

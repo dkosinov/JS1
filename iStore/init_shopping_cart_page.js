@@ -1,6 +1,9 @@
+var productsDB = productsBase; //название переменной хранящей массив товаров
+
 function myInitPage() {
     console.log('Загрузка завершена!');
-    var productsDB = productsBase; //название переменной хранящей массив товаров
+
+
 
     //Добавляем товары в корзину
     ProductCart_Model.addProductToCart(1);

@@ -1,5 +1,3 @@
-var productsDB = productsBase;
-
 var productCartPrototype = {
     getItemTotalSum : function () {
         //вернём стоимость всех единиц данного товара
@@ -105,7 +103,6 @@ var ProductCart_Model = {
                     newProductInCart.objProduct = productsDB[i];
                     newProductInCart.quantity = 1;
                     this.productList.push(newProductInCart);
-                    ProductCart_View.loadCartProductListInPage(); //обновляем товары корзины на странице
                     return true;
                 }
             }
