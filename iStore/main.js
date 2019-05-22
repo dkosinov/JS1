@@ -1,29 +1,21 @@
 function myInitPage() {
     console.log('Загрузка завершена!');
+    var productsDB = productsBase; //название переменной хранящей массив товаров
 
     //Добавляем товары в корзину
-    //objCart.addProductToCart('001',3);
-    // objCart.addProductToCart('002',8);
-    // objCart.addProductToCart('003',6);
+    ProductCart_Model.addProductToCart(1);
+    // productCart.addProductToCart('002',8);
+    // productCart.addProductToCart('003',6);
 
-    //вызов функции вывода карзины в страницу
-    objCart.loadCartProductListInPage();
-
-    objCatalog.loadCatalogInPage();
+    //выводим карзину на страничку
+    ProductCart_View.loadCartProductListInPage();
+    console.log('Корзина загружена');
+    //выводим каталог на страничку
+    Catalog_View.loadCatalogInPage();
 }
 
 window.addEventListener('load', myInitPage);
 
-function getProductRatingHTML (_thisProductRating) {
-    var ratingHTML = '';
-    var maxRating = 5;
-    for (var j = 0; j < maxRating; j++) {
-        if (j < _thisProductRating) {
-            ratingHTML += '<div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>\n'
-            //если пустые звёздочки должны отображатьса, то раскоментить
-            // } else {
-            //     ratingHTML += '<div class="stars__star"><i class="fas fa-star"></i></div>\n'
-        }
-    }
-    return ratingHTML;
+function consoleLogCheckMessage(_strValue, _value) {
+    console.log(_strValue + ' = ' +_value);
 }

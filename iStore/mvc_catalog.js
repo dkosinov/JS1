@@ -1,6 +1,6 @@
 var productsBase = [
     {
-        id : '001',
+        id : 1,
         name : 'MANGO PEOPLE T-SHIRT 001',
         imgS : 'img/product/product-1.jpg',
         imgM : 'img/product/product-1.jpg',
@@ -11,7 +11,7 @@ var productsBase = [
         price : 700.00,
     },
     {
-        id : '002',
+        id : 2,
         name : 'MANGO PEOPLE T-SHIRT 002',
         imgS : 'img/product/product-2.jpg',
         imgM : 'img/product/product-2.jpg',
@@ -22,7 +22,7 @@ var productsBase = [
         price : 870.00,
     },
     {
-        id : '003',
+        id : 3,
         name : 'MANGO PEOPLE T-SHIRT 003',
         imgS : 'img/product/product-3.jpg',
         imgM : 'img/product/product-3.jpg',
@@ -32,7 +32,7 @@ var productsBase = [
         size : 'L',
         price : 1200.00,
     },    {
-        id : '004',
+        id : 4,
         name : 'MANGO PEOPLE T-SHIRT 004',
         imgS : 'img/product/product-4.jpg',
         imgM : 'img/product/product-4.jpg',
@@ -43,7 +43,7 @@ var productsBase = [
         price : 1200.00,
     },
     {
-        id : '005',
+        id : 5,
         name : 'MANGO PEOPLE T-SHIRT 005',
         imgS : 'img/product/product-5.jpg',
         imgM : 'img/product/product-5.jpg',
@@ -54,7 +54,7 @@ var productsBase = [
         price : 1200.00,
     },
     {
-        id : '006',
+        id : 6,
         name : 'MANGO PEOPLE T-SHIRT 006',
         imgS : 'img/product/product-6.jpg',
         imgM : 'img/product/product-6.jpg',
@@ -65,7 +65,7 @@ var productsBase = [
         price : 1200.00,
     },
     {
-        id : '007',
+        id : 7,
         name : 'MANGO PEOPLE T-SHIRT 007',
         imgS : 'img/product/product-7.jpg',
         imgM : 'img/product/product-7.jpg',
@@ -76,7 +76,7 @@ var productsBase = [
         price : 1200.00,
     },
     {
-        id : '008',
+        id : 8,
         name : 'MANGO PEOPLE T-SHIRT 008',
         imgS : 'img/product/product-8.jpg',
         imgM : 'img/product/product-8.jpg',
@@ -87,7 +87,7 @@ var productsBase = [
         price : 1200.00,
     },
     {
-        id : '009',
+        id : 9,
         name : 'MANGO PEOPLE T-SHIRT 009',
         imgS : 'img/product/product-9.jpg',
         imgM : 'img/product/product-9.jpg',
@@ -103,16 +103,14 @@ function handleCatalogButtonClick(event) {
     switch (event.target.id) {
         case 'addItemToCartButton' : {
             console.log('event.currentTarget.dataset.product_id = ' + event.currentTarget.dataset.product_id);
-            objCart.addProductToCart(event.currentTarget.dataset.product_id);
+            ProductCart_Model.addProductToCart(+event.currentTarget.dataset.product_id);
             break;
         }
     }
 }
-var objCatalog = {
+var Catalog_View = {
     loadCatalogInPage : function () {
         $catalog_container = document.querySelector('#catalog_container');
-        //removeCartProductsFromNode($cart_products_container); //почистим корзину на странице
-        console.log($cart_products_container);
         if (productsBase.length === 0) {
             //
         }  else {
@@ -127,7 +125,7 @@ var objCatalog = {
                     '                                                                class="product-mini__img"></a>\n' +
                     '                    <div class="product-mini__text"><a class="product-mini__link" href="#">\n' + productsBase[i].name + '</a>\n' +
                     '                        <p class="product-mini__price">' + productsBase[i].price.toFixed(2)+ '</p>\n' +
-                    '                        <div class="product-mini__stars stars">\n' + getProductRatingHTML(productsBase[i].rating) + '</div>\n' +
+                    '                        <div class="product-mini__stars stars">\n' + ProductCart_View.getProductRatingHTML(productsBase[i].rating) + '</div>\n' +
                     '                    </div>\n' +
                     '                    <div class="add-to-cart add-to-cart_mod-3">\n' +
                     '                        <a href="#" id = "addItemToCartButton" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big"><img\n' +

@@ -9,8 +9,8 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="catalogInit.js">//Создадим объекты товаров каталога</script>
-    <script src="obj_cart.js">//Создадим объект корзины</script>
+    <script src="mvc_catalog.js">//Создадим объекты товаров каталога</script>
+    <script src="mvc_cart.js">//Создадим объект корзины</script>
     <script src="main.js"></script>
 </head>
 <body>
@@ -154,6 +154,45 @@
                     <div class="cart__column-6 cart__head-text">ACTION</div>
                 </div>
                 <div id="cart_products_container"></div>
+<!--            шаблон для элемента корзины на странице-->
+                <div id="cart_item_template" style="display: none;">
+                    <div class="cart__item">
+                        <div class="cart__column-1 cart__product">
+                            <a href="single_page.html" class="cart__product-link">
+                                <img id="cart_item_img" src="" alt="product" class="cart__product-img">
+                            </a>
+                            <div class="cart__product-text">
+                                <div id="cart_item_name" class="cart__product-name">Mango People T-shirt</div>
+                                <div id="cart_item_stars" class="cart__product-stars stars">
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+                                </div>
+                                <div class="cart__product-color">
+                                    Color:
+                                    <span id="cart_item_color" class="cart__product-color-data">Red</span>
+                                </div>
+                                <div class="cart__product-size">
+                                    Size:
+                                    <span id="cart_item_size" class="cart__product-size-data">Xll</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cart_item_price" class="cart__column-2 cart__product-price">$150</div>
+                        <div class="cart__column-3 cart__product-quantity">
+                            <input id="cart_item_quantity" type="text" class="cart__product-quantity-input" placeholder="2">
+                        </div>
+                        <div class="cart__column-4 cart__product-shipping">FREE</div>
+                        <div id="cart_item_total_sum" class="cart__column-5 cart__product-subtotal">$300</div>
+                        <div class="cart__column-6 cart__product-action">
+                            <a href="#" class="cart__product-action-link">
+                                <i id='dellButton' class="fas fa-times-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="cart__buttons">
                 <a href="" class="cart__button">Shipping Adress</a>
