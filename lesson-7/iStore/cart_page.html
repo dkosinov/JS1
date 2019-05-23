@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping_cart</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="mvc_catalog.js">//Создадим объекты товаров каталога</script>
+    <script src="mvc_cart.js">//Создадим объект корзины</script>
+    <script src="init_shopping_cart_page.js"></script>
+</head>
+<body>
+
+    <main class="container catalog">
+        <nav class="catalog__spoiler-nav spoiler-nav">
+            <details class="spoiler-nav__box">
+                <summary class="spoiler-nav__title">
+                    <p>Category</p>
+                </summary>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Accessories</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Bags</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Denim</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Hoodies & Sweatshirts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Jackets & Coats</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Pants</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Polos</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shirts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shoes</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shorts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Sweaters & Knits</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">T-Shirts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Tanks</a></p>
+            </details>
+            <details class="spoiler-nav__box">
+                <summary class="spoiler-nav__title">
+                    <p>BRAND</p>
+                </summary>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Accessories</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Bags</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Denim</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Hoodies & Sweatshirts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Jackets & Coats</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Pants</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Polos</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shirts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shoes</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shorts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Sweaters & Knits</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">T-Shirts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Tanks</a></p>
+            </details>
+            <details class="spoiler-nav__box">
+                <summary class="spoiler-nav__title">
+                    <p>DESIGNER</p>
+                </summary>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Accessories</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Bags</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Denim</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Hoodies & Sweatshirts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Jackets & Coats</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Pants</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Polos</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shirts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shoes</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Shorts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Sweaters & Knits</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">T-Shirts</a></p>
+                <p class="spoiler-nav__item"><a href="#" class="spoiler-nav__link">Tanks</a></p>
+            </details>
+        </nav>
+        <div class="catalog__container">
+            <div class="catalog__filter">
+                <div class="catalog__filter-box">
+                    <div class="catalog__filter-title">Trending now</div>
+                    <div class="catalog__filter-group-links">
+                        <a href="#" class="catalog__filter-link">Bohemian</a>
+                        <a href="#" class="catalog__filter-link catalog__filter-link_center">Floral</a>
+                        <a href="#" class="catalog__filter-link">Lace</a><br>
+                        <a href="#" class="catalog__filter-link">Floral</a>
+                        <a href="#" class="catalog__filter-link catalog__filter-link_center">Lace</a>
+                        <a href="#" class="catalog__filter-link">Bohemian</a>
+
+                    </div>
+                </div>
+                <div class="catalog__filter-box">
+                    <div class="catalog__filter-title">Size</div>
+                    <div class="catalog__filter-group-check-box">
+                        <span class="catalog__filter-group-check-box-item"><input
+                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="XXS"><label
+                                for="XXS" class="catalog__filter-group-check-box-label">XXS</label></span>
+                        <span class="catalog__filter-group-check-box-item"><input
+                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="XS"><label
+                                for="XS" class="catalog__filter-group-check-box-label">XS</label></span>
+                        <span class="catalog__filter-group-check-box-item"><input
+                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="S"><label for="S"
+                                                                                                                    class="catalog__filter-group-check-box-label">S</label></span>
+                        <span class="catalog__filter-group-check-box-item"><input
+                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="M"><label for="M"
+                                                                                                                    class="catalog__filter-group-check-box-label">M</label></span>
+                        <span class="catalog__filter-group-check-box-item"><input
+                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="L"><label for="L"
+                                                                                                                    class="catalog__filter-group-check-box-label">L</label></span>
+                        <span class="catalog__filter-group-check-box-item"><input
+                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="XL"><label
+                                for="XL" class="catalog__filter-group-check-box-label">XL</label></span>
+                        <span class="catalog__filter-group-check-box-item"><input
+                                class="catalog__filter-group-check-box-input" type="checkbox" name="" id="XXL"><label
+                                for="XXL" class="catalog__filter-group-check-box-label">XXL</label></span>
+                    </div>
+                </div>
+                <div class="catalog__filter-box">
+                    <div class="catalog__filter-title">PRICE</div>
+                    <div class="catalog__filter-group">диапазон цены</div>
+                </div>
+            </div>
+            <div class="catalog__view">
+                    <span class="catalog__view-select-box">
+                        <span class="catalog__view-select-caption">Sort By</span>
+                        <select name="" class="catalog__view-select" caption>
+                            <option value="" name="">Name</option>
+                        </select>
+                    </span>
+                <span class="catalog__view-select-box">
+                            <span class="catalog__view-select-caption">Show</span>
+                            <select name="" class="catalog__view-select" caption>
+                                <option value="" name="">09</option>
+                            </select>
+                        </span>
+            </div>
+            <div id="catalog_container" class="catalog__content"></div>
+            <div class="catalog__bottom">
+                <div class="catalog__pagination">Pagination</div>
+                <a href="#" class="catalog__view-all-link">
+                    <div class="catalog__button-view-all">View All</div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+
+    <main class="cart">
+        <div class="container cart__container">
+            <div id = 'cart__content' class="cart__content">
+                <div class="cart__head">
+                    <div class="cart__column-1 cart__head-text">Product Details</div>
+                    <div class="cart__column-2 cart__head-text">unite Price</div>
+                    <div class="cart__column-3 cart__head-text">Quantity</div>
+                    <div class="cart__column-4 cart__head-text">shipping</div>
+                    <div class="cart__column-5 cart__head-text">Subtotal</div>
+                    <div class="cart__column-6 cart__head-text">ACTION</div>
+                </div>
+                <div id="cart_products_container"></div>
+<!--            шаблон для элемента корзины на странице-->
+                <div id="cart_item_template" style="display: none;">
+                    <div class="cart__item">
+                        <div class="cart__column-1 cart__product">
+                            <a href="single_page.html" class="cart__product-link">
+                                <img id="cart_item_img" src="" alt="product" class="cart__product-img">
+                            </a>
+                            <div class="cart__product-text">
+                                <div id="cart_item_name" class="cart__product-name">Mango People T-shirt</div>
+                                <div id="cart_item_stars" class="cart__product-stars stars">
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+    <!--                                <div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>-->
+                                </div>
+                                <div class="cart__product-color">
+                                    Color:
+                                    <span id="cart_item_color" class="cart__product-color-data">Red</span>
+                                </div>
+                                <div class="cart__product-size">
+                                    Size:
+                                    <span id="cart_item_size" class="cart__product-size-data">Xll</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cart_item_price" class="cart__column-2 cart__product-price">$150</div>
+                        <div class="cart__column-3 cart__product-quantity">
+                            <input id="cart_item_quantity" type="text" class="cart__product-quantity-input" placeholder="2">
+                        </div>
+                        <div class="cart__column-4 cart__product-shipping">FREE</div>
+                        <div id="cart_item_total_sum" class="cart__column-5 cart__product-subtotal">$300</div>
+                        <div class="cart__column-6 cart__product-action">
+                            <a href="#" class="cart__product-action-link">
+                                <i id='dellButton' class="fas fa-times-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart__buttons">
+                <a href="" class="cart__button">Shipping Adress</a>
+                <a href="" class="cart__button">cONTINUE sHOPPING</a>
+            </div>
+            <div class="cart__details">
+                <div class="cart__adress">
+                    <p class="cart__details-title">Shipping Adress</p>
+                    <select name="" id="" class="cart__details-input cart__adress-country">
+                        <option value="Bangladesh">Bangladesh</option>
+                    </select>
+                    <input type="text" class="cart__details-input cart__adress-state" placeholder="State">
+                    <input type="text" class="cart__details-input cart__adress-zip" placeholder="Postcode / Zip">
+                </div>
+                <div class="cart__coupon">
+                    <p href="" class="cart__details-title">coupon  discount</p>
+                    <div class="cart__coupon-caption">Enter your coupon code if you have one</div>
+                    <input type="text" class="cart__details-input cart__coupon-code" placeholder="000000">
+                    <a href="" class="cart__button cart__button_small">Apply coupon</a>
+                </div>
+                <div class="cart__total">
+                    <p class="cart__total-subtotal">Sub total <span id = "subTotalSum">!0.00</span></p>
+                    <p class="cart__total-grandtotal">grand total <span id = "grandTotalSum" class="_pink-text">!0.00</span></p>
+                    <a href="#" class="cart__total-button">proceed to checkout</a>
+                </div>
+            </div>
+            <a href="" class="cart__button cart__button_small">get a quote</a>
+
+        </div>
+    </main>
+
+
+</body>
+</html>
