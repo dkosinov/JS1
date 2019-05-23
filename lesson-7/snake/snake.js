@@ -6,13 +6,17 @@ var SIZE = {
 var SNAKE_SPEED = 300;
 
 var $gameField;
-var $gameTable
+var $gameTable;
 var snakeCoordX;
 var snakeCoordY;
 var interval;
 var direction = 'top';
 var snake = [];
 var score = 0;
+var foodDelay = SIZE.WIDTH + SIZE.HEIGHT;//Math.floor(Math.random() * SIZE.WIDTH);;
+var loosed = false;
+var blocks = [];
+var foodUnit;
 
 function prepareGameField() {
   $gameTable = document.createElement('table');
@@ -32,6 +36,7 @@ function prepareGameField() {
   }
 
   $gameField.appendChild($gameTable);
+
 }
 
 function respawn() {
@@ -46,19 +51,52 @@ function respawn() {
 
   snake.push($snakeTail);
   snake.push($snakeHead);
+
+  var foodDelay = SIZE.WIDTH + SIZE.HEIGHT;//Math.floor(Math.random() * SIZE.WIDTH);;
+  document.querySelector('#delay').textContent = foodDelay;
+  var loosed = false;
+
 }
 
-function inBounds() {
-  return snakeCoordX >= 0 && snakeCoordX < SIZE.WIDTH && snakeCoordY >= 0 && snakeCoordY < SIZE.HEIGHT;
+function addBlock() {
+  while (true) {
+    var blockCoordX = Math.floor(Math.random() * SIZE.WIDTH);
+    var blockCoordY = Math.floor(Math.random() * SIZE.HEIGHT);
+    var $blockUnit = $gameTable.children[blockCoordY].children[blockCoordX];
+    if (!isSnakeUnit($blockUnit) && !isBlockUnit($blockUnit) && !isFoodUnit($blockUnit)) {
+      $blockUnit.classList.add('block-unit');
+      blocks.push($blockUnit);
+      return;
+    }
+  }
+}
+
+function checkBounds() {
+  //return snakeCoordX >= 0 && snakeCoordX < SIZE.WIDTH && snakeCoordY >= 0 && snakeCoordY < SIZE.HEIGHT;
+  if (snakeCoordX >= 0 && snakeCoordX < SIZE.WIDTH && snakeCoordY >= 0 && snakeCoordY < SIZE.HEIGHT) {
+    return true;
+  } else {
+      if (snakeCoordX < 0) {
+        snakeCoordX = SIZE.WIDTH-1;
+        //direction = 'right';
+      } else if (snakeCoordX == SIZE.WIDTH) {
+        snakeCoordX = 0;
+        //direction = 'left';
+      } else if (snakeCoordY < 0) {
+        snakeCoordY = SIZE.HEIGHT-1;
+        //direction = 'bottom';
+      } else if (snakeCoordY == SIZE.HEIGHT) {
+        snakeCoordY = 0;
+        //direction = 'top';
+      }
+  }
+
 }
 
 function gameOver() {
+  loosed = true;
   alert('You loose');
   clearInterval(interval);
-}
-
-function isSnakeUnit(unit) {
-  return snake.includes(unit);
 }
 
 function move() {
@@ -76,32 +114,56 @@ function move() {
       snakeCoordX++;
       break;
   }
+  checkBounds();
 
-  if(!inBounds()) {
-    gameOver();
-    return;
-  }
+  // if(!inBounds()) {
+  //   //gameOver();
+  //   return;
+  // }
+
 
   var $newUnit = $gameTable.children[snakeCoordY].children[snakeCoordX];
-  if(!isSnakeUnit($newUnit)) {
+
+  //checkBlockUnit($newUnit); //проиграл если столкнулся с припятствием
+
+  if(!loosed && !isSnakeUnit($newUnit) && !isBlockUnit($newUnit)) {
     $newUnit.classList.add('snake-unit');
     snake.push($newUnit);
 
-    if(!isFood($newUnit)) {
+    if(!getFood($newUnit)) {
       var $snakeRemoved = snake.shift();
       $snakeRemoved.classList.remove('snake-unit');
+    } else addBlock();
+
+
+    //управляем жизнью еды
+    if (foodDelay === 0) {
+      //respawnFood(); //если не успеваем съесть убераем еду и добавляем в новом месте
+      gameOver();//проигрываем если не успеваем съесть еду
+    } else {
+      foodDelay--;
+      document.querySelector('#delay').textContent = foodDelay;
     }
+
   } else {
     gameOver();
   }
 }
 
-function isFood(unit) {
+// function respawnFood() {
+//   var $foodUnit = document.querySelector('.food-unit');
+//   $foodUnit.classList.remove('food-unit');
+//   createFood();
+//   foodDelay = SIZE.WIDTH + SIZE.HEIGHT;
+//   document.querySelector('#delay').textContent = foodDelay;
+// }
+
+function getFood(unit) {
   if(unit.classList.contains('food-unit')) {
     unit.classList.remove('food-unit');
     score++;
     document.querySelector('#score').textContent = score;
-    SNAKE_SPEED = 300 - score * 5;
+    SNAKE_SPEED = 300 - score * 15;
     clearInterval(interval);
     interval = setInterval(move, SNAKE_SPEED);
     createFood();
@@ -118,19 +180,38 @@ function createFood() {
 
     var $foodCell = $gameTable.children[foodY].children[foodX];
 
+
     if(!snake.includes($foodCell)) {
       $foodCell.classList.add('food-unit');
-
+      foodUnit = $foodCell;
+      foodDelay = SIZE.WIDTH + SIZE.HEIGHT;
+      document.querySelector('#delay').textContent = foodDelay;
       break;
     }
   }
 }
+function isFoodUnit(unit) {
+  return unit === foodUnit;
+}
+function isSnakeUnit(unit) {
+  return snake.includes(unit);
+}
+
+function isBlockUnit(unit) {
+  return blocks.includes(unit);
+}
+
+// function checkBlockUnit(unit) {
+//   if (blocks.includes(unit)) {
+//     gameOver();
+//   }
+// }
 
 function handleStartClick(event) {
-  respawn();
-
-  interval = setInterval(move, SNAKE_SPEED);
-  createFood();
+  if (!loosed) {
+    respawn();
+    interval = setInterval(move, SNAKE_SPEED);
+    createFood();  }
 }
 
 function handleRenewClick(event) {

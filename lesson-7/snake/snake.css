@@ -28,7 +28,7 @@ td.game-table-cell {
   width: 15px;
   height: 15px;
   border: 1px dotted #eee;
-  border-collapse: collapse;
+  /*border-collapse: collapse;*/
 }
 
 .snake-unit {
@@ -37,4 +37,8 @@ td.game-table-cell {
 
 .food-unit {
   background-color: red;
+}
+
+.block-unit {
+  background-color: blue;
 }
