@@ -110,7 +110,15 @@ function handleCatalogButtonClick(event) {
     }
 }
 var Catalog_View = {
+    init : function () {
+        //выводим каталог на страничку
+        Catalog_View.loadCatalogInPage();
+        console.log('Каталог загружен');
+
+    },
+
     loadCatalogInPage : function () {
+        //внести изменения для загрузки из темплейта
         $catalog_container = document.querySelector('#catalog_container');
         if (productsBase.length === 0) {
             //

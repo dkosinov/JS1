@@ -152,6 +152,12 @@ var ProductCart_View = {
     cart_products_container_tagId : 'cart_products_container',
     cart_item_template_tagId : 'cart_item_template',
 
+    init : function () {
+        //выводим корзину на страничку
+        ProductCart_View.loadCartProductListInPage();
+        console.log('Корзина загружена');
+    },
+
     getCartProductsContainerNode : function () {
         return document.querySelector('#'+this.cart_products_container_tagId);
     },
